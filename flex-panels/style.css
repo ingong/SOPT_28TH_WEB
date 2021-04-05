@@ -1,0 +1,101 @@
+html {
+  box-sizing: border-box;
+  font-family: "Jua", sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+body {
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.panels {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.panel {
+  background: #6b0f9c;
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+  color: white;
+  text-align: center;
+  align-items: center;
+  transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+    flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
+  font-size: 20px;
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel:nth-child(1) {
+  background: linear-gradient(90deg, #d8f5ff 0%, #00ddff 100%);
+}
+.panel:nth-child(2) {
+  background: linear-gradient(90deg, #00ddff 0%, #60a0ff 100%);
+}
+.panel:nth-child(3) {
+  background: linear-gradient(90deg, #60a0ff 0%, #8a77ff 100%);
+}
+.panel:nth-child(4) {
+  background: linear-gradient(90deg, #8a77ff 0%, #9400d3 100%);
+}
+
+/* Flex Items */
+.panel > * {
+  margin: 0;
+  width: 100%;
+  transition: transform 0.5s;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel > *:hover {
+  cursor: pointer;
+}
+.panel > *:first-child {
+  transform: translateY(-100%);
+}
+.panel.open-active > *:first-child {
+  transform: translateY(0);
+}
+.panel > *:last-child {
+  transform: translateY(100%);
+}
+.panel.open-active > *:last-child {
+  transform: translateY(0);
+}
+
+.panel p {
+  text-transform: uppercase;
+  font-family: "Jua", sans-serif;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+  font-size: 1em;
+}
+
+.panel p:nth-child(2) {
+  font-size: 4em;
+}
+
+.panel.open {
+  flex: 2;
+  font-size: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  .panel p {
+    font-size: 1em;
+  }
+}
