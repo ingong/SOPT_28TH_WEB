@@ -1,3 +1,9 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
 html {
     background: #018DED;
     background-size: cover;
@@ -6,6 +12,8 @@ html {
   }
 
   body {
+    font-family: 'Open Sans';
+    font-weight: 300;
     margin: 0;
     font-size: 2rem;
     display: flex;
@@ -18,7 +26,8 @@ html {
     width: 100vw;
     padding-top: 10rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
   }
 
@@ -111,3 +120,67 @@ html {
     background: red;
     height: 3px;
   }
+
+
+
+.title {
+    color: #db5b33;
+    font-weight: 300;
+    text-align: center;
+}
+
+.toggle-button {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+/* 토글 버튼 내부의 원 */
+.toggle-button>.toggle-button-switch {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    /* toggle => left: 52px */
+    width: 46px;
+    height: 46px;
+    background-color: #fff;
+    border-radius: 100%;
+    transition: left 0.3s;
+}
+
+/* 토글 버튼의 바탕 */
+.toggle-button>.toggle-button-text {
+    display: flex;
+    background-color: #3dbf87;
+    border-radius: 25px;
+    box-shadow: 2px 2px 5px 0 rgba(50, 50, 50, 0.75);
+    transition: background-color 0.3s;
+}
+
+/* 토글 버튼의 텍스트 */
+.toggle-button>.toggle-button-text>.toggle-button-text-on,
+.toggle-button>.toggle-button-text>.toggle-button-text-off {
+    width: 50%;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+/* Dark Theme */
+body.dark {
+    background-color: #232323;
+}
+
+body.dark .toggle-button>.toggle-button-switch {
+    left: 52px;
+}
+
+body.dark .toggle-button>.toggle-button-text {
+    background-color: #fc3164;
+}
+
+body.dark article {
+    color: #fff;
+}
