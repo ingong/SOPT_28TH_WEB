@@ -2,6 +2,8 @@ const secondhand = document.querySelector(".second-hand");
 const minhand = document.querySelector(".min-hand");
 const hourhand = document.querySelector(".hour-hand");
 const clockTarget = document.querySelector(".digitalClock");
+const changeClock = document.querySelector(".changeClock");
+let hour24 = true;
 
 function setAnalog() {
   const now = new Date();
@@ -24,11 +26,12 @@ function setDigital() {
   let month = date.getMonth();
   let clockDate = date.getDate();
   let day = date.getDay();
-
   const week = ["일", "월", "화", "수", "목", "금", "토"];
-  let hours = date.getHours();
+
+  let hours = hour24 ? date.getHours() : date.getHours() - 12;
   let minutes = date.getMinutes();
   let seconds = date.getSeconds();
+
   clockTarget.innerText =
     `${month + 1}월 ${clockDate}일 ${week[day]}요일` +
     `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${
@@ -43,4 +46,15 @@ function init() {
   setInterval(setAnalog, 1000);
 }
 
+const changeTime = () => {
+  if (hour24 === true) {
+    hour24 = false;
+    changeClock.textContent = "12H";
+  } else {
+    hour24 = true;
+    changeClock.textContent = "24H";
+  }
+};
+
+changeClock.addEventListener("click", changeTime);
 init();
