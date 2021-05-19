@@ -38,7 +38,7 @@ const MainHeader = ({ history }) => {
     <MainHeaderWrap>
       <div className='header'>
         <img className='header__menu' src={MenuIcon} alt='' />
-        <div className='header__title' onClic={() => history.push("/")}>
+        <div className='header__title' onClick={() => history.push("/")}>
           Diary App
         </div>
         <img className='header__profile' src={ProfileIcon} alt=''></img>
