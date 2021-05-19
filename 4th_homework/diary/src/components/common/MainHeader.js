@@ -27,7 +27,7 @@ const MainHeaderWrap = Styled.div`
     }
 
     &__hr {
-      width: 1200px;
+      width: 100%;
       height: 13px;
       background: linear-gradient(90deg, white, #CEA0E3);
     }

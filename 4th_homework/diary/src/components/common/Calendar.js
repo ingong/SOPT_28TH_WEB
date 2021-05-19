@@ -7,7 +7,7 @@ import RightOn from "../../assets/RightOn.svg";
 
 const CalendarWrap = Styled.div`
   .calendar {
-    width: 1200px;
+    width: 100%;
     height: 118px;
     display: flex;
     flex-direction: column;
