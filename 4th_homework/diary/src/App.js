@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainHeader from "./components/common/MainHeader";
 import Title from "./components/common/Title";
@@ -17,6 +17,7 @@ const getCurrentDate = () => {
 function App() {
   const [year, setYear] = useState(getCurrentDate().year);
   const [month, setMonth] = useState(getCurrentDate().month);
+
   return (
     <>
       <Router>
@@ -29,7 +30,11 @@ function App() {
         />
         <Title />
         <Switch>
-          <Route exact path='/' component={Main} />
+          <Route
+            exact
+            path='/'
+            component={() => <Main year={year} month={month} />}
+          />
           <Route path='/diary' component={Diary} />
           <Route path='/diary/:id' component={Diary} />
         </Switch>
