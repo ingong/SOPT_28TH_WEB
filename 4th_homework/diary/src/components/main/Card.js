@@ -1,6 +1,7 @@
 import React from "react";
 import Styled from "styled-components";
 import EmptyImage from "../../assets/Empty.svg";
+
 const CardWrap = Styled.div`
   .card {
     box-sizing: border-box;
@@ -77,12 +78,12 @@ const getDateFormat = (date) => {
   return `${year}월 ${day}일`;
 };
 
-const Card = ({ props }) => {
+const Card = ({ props, onClickFunc }) => {
   const { date, title, image, weather, tags } = props;
 
   return (
     <CardWrap>
-      <div className='card'>
+      <div className='card' onClick={onClickFunc}>
         <div className='card__image'>
           {image ? (
             <img className='card__image--photo' src={image} alt='' />

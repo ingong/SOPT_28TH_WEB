@@ -48,7 +48,7 @@ const NewCard = ({ id, rawData, year, month, setUserData }) => {
   };
   return (
     <NewCardWrap>
-      <div className='card'>
+      <div className='card' onClick={createCard}>
         <p className='card__text'>+ 추가해주세요</p>
       </div>
     </NewCardWrap>
