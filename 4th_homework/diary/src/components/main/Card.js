@@ -86,7 +86,13 @@ const Card = ({ props, onClickFunc }) => {
       <div className='card' onClick={onClickFunc}>
         <div className='card__image'>
           {image ? (
-            <img className='card__image--photo' src={image} alt='' />
+            <img
+              className='card__image--photo'
+              width='200'
+              height='200'
+              src={image}
+              alt=''
+            />
           ) : (
             <img className='card__image--empty' src={EmptyImage} alt='' />
           )}
@@ -95,7 +101,7 @@ const Card = ({ props, onClickFunc }) => {
           <div className='card__top--date'>{getDateFormat(date)}</div>
           <div className='card__top--weather'>{weather}</div>
         </div>
-        <div className='card__title'>{title}</div>
+        <div className='card__title'>{title ? title : "제목 없음"}</div>
         <div className='card__tags'>
           {tags.map((tag, index) => {
             return (

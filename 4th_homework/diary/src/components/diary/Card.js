@@ -1,8 +1,9 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import Styled from "styled-components";
+import { withRouter } from "react-router-dom";
 import CardHeader from "./CardHeader";
 import CardInfo from "./CardInfo";
+import { createCardData } from "../../lib/api";
 
 const CardWrap = Styled.div`
   width: 785px;
@@ -32,9 +33,11 @@ const CardWrap = Styled.div`
   }
 `;
 
-const Card = ({ data, match }) => {
+const Card = ({ data, match, history, setRawData, rawData, year, month }) => {
   const isReadOnly = match.path === "/diary/:id" ? true : false;
   const [state, setState] = React.useState(data);
+  const id = parseInt(match.params.id);
+
   const handleChange = (event) => {
     const name = event.target.name;
     setState({
@@ -42,19 +45,44 @@ const Card = ({ data, match }) => {
       [name]: event.target.value,
     });
   };
+
+  const handleEdit = async () => {
+    const index = rawData[year][month].findIndex((data) => data.id === id);
+    const newList = rawData[year].filter((data) => data);
+    newList[month][index] = state;
+    const data = await createCardData({ ...rawData, [year]: newList });
+    history.goBack();
+  };
+
+  const handleDelete = async () => {
+    const filteredList = rawData[year][month].filter((data) => data.id !== id);
+    const newList = rawData[year].filter((data) => data);
+    newList[month] = filteredList;
+    const data = await createCardData({ ...rawData, [year]: newList });
+    history.goBack();
+  };
+
   return (
     <CardWrap>
       <CardHeader
         title={state.title}
-        isReadonly={isReadOnly}
+        isReadOnly={isReadOnly}
         handleChange={handleChange}
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
       />
       <CardInfo
         data={state}
         isReadOnly={isReadOnly}
         handleChange={handleChange}
       />
-      <p>{state.title}</p>
+      <textarea
+        placeholder='오늘을 기록해 주세요'
+        readOnly={isReadOnly}
+        value={state.text}
+        name='text'
+        onChange={handleChange}
+      />
     </CardWrap>
   );
 };
