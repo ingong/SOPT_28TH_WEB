@@ -18,6 +18,7 @@ const Main = ({ year, month, history }) => {
   React.useEffect(() => {
     (async () => {
       const data = await getCardData();
+      console.log(data);
       setRawData(data);
       data[year] && setUserData(data[year][month]);
     })();
