@@ -164,29 +164,6 @@
             "text": ""
           },
           {
-            "id": 6,
-            "date": 20210506,
-            "title": "다이어리 제목 어쩌고 저쩌고",
-            "image": "",
-            "weather": "맑음",
-            "tags": [
-              "태그11",
-              "태그12"
-            ],
-            "summary": "안뇽",
-            "text": ""
-          },
-          {
-            "id": 7,
-            "date": 20210529,
-            "title": "Hi",
-            "image": "",
-            "weather": "",
-            "tags": [],
-            "summary": "",
-            "text": ""
-          },
-          {
             "id": 8,
             "date": 20210529,
             "title": "",

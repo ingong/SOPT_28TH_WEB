@@ -37,7 +37,7 @@ const CalendarWrap = Styled.div`
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      width: 1025px;
+      width: 95%;
       &--button {
         font-size: 18px;
         width: 52px;
