@@ -43,7 +43,7 @@ const CardHeaderWrap = Styled.div`
     cursor: pointer;
   }
 `;
-const CardHeader = ({ title, isReadOnly, name, handleChange }) => {
+const CardHeader = ({ title, isReadOnly, handleChange }) => {
   return (
     <CardHeaderWrap>
       <input

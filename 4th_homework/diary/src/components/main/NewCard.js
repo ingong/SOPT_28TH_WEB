@@ -35,6 +35,7 @@ const getDate = () => {
 const NewCard = ({ id, rawData, year, month, setUserData }) => {
   const createCard = async () => {
     const cardForm = {
+      id: id,
       date: getDate(),
       title: "",
       weather: "",
