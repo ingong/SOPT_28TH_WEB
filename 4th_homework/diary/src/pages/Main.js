@@ -10,8 +10,6 @@ const MainWrap = Styled.div`
   grid-template-columns: repeat(auto-fill, 220px);
   width: 100%;
   gap: 25px 25px;
-  
-
 `;
 
 const Main = ({ year, month, history }) => {
